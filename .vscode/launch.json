@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (lib\\main.dart)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "real_chat_flutter",
+            "program": "lib\\main.dart"
+        }
+    ]
+}
