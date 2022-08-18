@@ -64,21 +64,22 @@ var upload = multer({ storage: storage })
 app.post("/upload", upload.single('myFile'), async (req, res, next) => {
     console.log('hiiiiiiiiiiiiiiiiiiii')
     const file = req.file; 
-    console.log('file', file)
+    // console.log('file', file)
     if (!file) {
         const error = new Error('Please upload a file')
         error.httpStatusCode = 400
         return next("hey error")
     }
     res.json('Image Uploaded ')
+    console.log('image uploaded')
 })
 
 socketio.on("connection", (userSocket) => {
     console.log('xxxxx')
     userSocket.on("send_message", (data) => {
         const json = JSON.parse(data)
-        // console.log(json.message)
-        if (json.message.indexOf('PlatformFile') < 0) {
+        console.log(json.message)
+        if (json.text) {
             // console.log('hi')
             // console.log(json.message)
             var msg = new Message({
